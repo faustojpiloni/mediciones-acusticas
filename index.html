@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | RIDALONI Mediciones Acústicas</title>
+    
+    <!-- Fuentes de Google: Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
 
+    <!-- CABECERA Y NAVEGACIÓN -->
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="./" class="logo-link">
+                <span class="logo-title">RIDALONI</span>
+                <span class="logo-subtitle">MEDICIONES ACÚSTICAS</span>
+            </a>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <!-- La clase "active" mantiene el Inicio subrayado y en gris claro -->
+                <li><a href="./" class="active">INICIO</a></li>
+                <li><a href="nosotros/">NOSOTROS</a></li>
+                <li><a href="servicios/">SERVICIOS</a></li>
+                <li><a href="contacto/">CONTACTO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- SECCIÓN DE IMÁGENES (CARRUSEL) -->
+        <section id="hero" class="carousel">
+            <div class="carousel-inner">
+                <!-- Se usarán rectángulos grises temporales hasta que subas las imágenes a assets/img/ -->
+                <div class="carousel-item active" style="background-color: #d1d5db;">
+                    <p class="temp-text">Imagen de Trabajo 1 (Auditorio)</p>
+                </div>
+                <div class="carousel-item" style="background-color: #9ca3af;">
+                    <p class="temp-text">Imagen de Trabajo 2 (Control Room)</p>
+                </div>
+                <div class="carousel-item" style="background-color: #6b7280;">
+                    <p class="temp-text">Imagen de Trabajo 3 (Sistema Hogareño)</p>
+                </div>
+                <div class="carousel-item" style="background-color: #4b5563;">
+                    <p class="temp-text">Imagen de Trabajo 4 (Teatro)</p>
+                </div>
+            </div>
+            
+            <button class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="carousel-control next" onclick="moveSlide(1)">&#10095;</button>
+        </section>
+
+        <!-- SECCIÓN: QUIÉNES SOMOS -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <p>
+                    Fusionamos ciencia, tecnología y pasión por el sonido para transformar espacios. 
+                    En <strong>RIDALONI</strong> analizamos a fondo el comportamiento acústico de recintos y sistemas de audio. 
+                    Respaldados por la rigurosidad de la ingeniería, entregamos diagnósticos precisos 
+                    —desde tiempos de reverberación hasta análisis de respuesta de monitores— 
+                    brindando soluciones fundamentadas para alcanzar la excelencia sonora.
+                </p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: SLOGAN -->
+        <section id="slogan" class="slogan-section">
+            <div class="container">
+                <h2>Precisión analítica. Excelencia acústica.</h2>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="main-footer">
+        <div class="footer-top container">
+            
+            <!-- Columna Izquierda: Logo -->
+            <div class="footer-col footer-logo">
+                <span class="logo-title-footer">RIDALONI</span>
+                <span class="logo-subtitle-footer">MEDICIONES ACÚSTICAS</span>
+            </div>
+
+            <!-- Columna Central: Navegación -->
+            <div class="footer-col footer-nav">
+                <ul>
+                    <li><a href="./">INICIO</a></li>
+                    <li><a href="nosotros/">NOSOTROS</a></li>
+                    <li><a href="servicios/">SERVICIOS</a></li>
+                    <li><a href="contacto/">CONTACTO</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna Derecha: Contacto e Iconos -->
+            <div class="footer-col footer-contact">
+                <div class="contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="phones">
+                        <span>+54 9 11 5336-2484 (Fausto Piloni)</span>
+                        <span>+54 9 11 4971-3799 (Pedro Ridano)</span>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-instagram"></i>
+                    <a href="https://instagram.com/ridaloni.acustica" target="_blank">@ridaloni.acustica</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <a href="https://linkedin.com/company/ridaloni" target="_blank">RIDALONI Mediciones</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:contacto@ridaloni.com">contacto@ridaloni.com</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="bottom-left">
+                    Sitio Web por Fausto Piloni y Pedro Ridano
+                </div>
+                <div class="bottom-right">
+                    Copyright &copy; 2026 RIDALONI &ndash; Todos los derechos reservados
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DEL CARRUSEL -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        function updateCarousel() {
+            for (let i = 0; i < totalSlides; i++) {
+                slides[i].classList.remove('active');
+            }
+            slides[currentSlide].classList.add('active');
+        }
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            updateCarousel();
+            resetInterval();
+        }
+
+        function autoPlay() {
+            moveSlide(1);
+        }
+
+        function resetInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(autoPlay, 5000); // Cambia de imagen cada 5 segundos
+        }
+
+        // Iniciar el carrusel
+        slideInterval = setInterval(autoPlay, 5000);
+    </script>
+</body>
+</html>
