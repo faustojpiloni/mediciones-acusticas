@@ -1,1 +1,291 @@
+/* ==========================================================================
+   RESET Y VARIABLES BASE
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #ffffff;
+    /* Texto en escala de grises oscuro, sin llegar a negro puro */
+    color: #333333; 
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==========================================================================
+   CABECERA (HEADER) Y NAVEGACIÓN
+   ========================================================================== */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+/* Construcción del Logo */
+.logo-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #333333;
+}
+
+.logo-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.28em; /* Ajustado para igualar el ancho de RIDALONI */
+    margin-top: 4px;
+    margin-right: -0.28em; /* Compensa el tracking del último caracter */
+}
+
+/* Menú Superior */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333333;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover y clase activa solicitada */
+.main-nav a:hover,
+.main-nav a.active {
+    color: #999999; /* Gris más claro */
+    text-decoration: underline;
+    text-underline-offset: 6px;
+    text-decoration-thickness: 2px;
+}
+
+/* ==========================================================================
+   CARRUSEL (IMÁGENES GRANDES)
+   ========================================================================== */
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 85vh; /* Ocupa casi toda la pantalla */
+    overflow: hidden;
+}
+
+.carousel-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+/* Botones del carrusel */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    border: none;
+    font-size: 2rem;
+    padding: 15px 20px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+/* Texto temporal en las imágenes */
+.temp-text {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   SECCIÓN: QUIÉNES SOMOS
+   ========================================================================== */
+.about-section {
+    padding: 80px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.about-section p {
+    font-size: 1.5rem; /* Letras grandes */
+    font-weight: 300;
+    max-width: 900px;
+    margin: 0 auto;
+    color: #444444; /* Gris oscuro para lectura */
+}
+
+/* ==========================================================================
+   SECCIÓN: SLOGAN
+   ========================================================================== */
+.slogan-section {
+    /* Color de fondo que combina con los grises (un gris azulado oscuro e ingenieril) */
+    background-color: #4a5568; 
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.slogan-section h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* ==========================================================================
+   FOOTER (PIE DE PÁGINA)
+   ========================================================================== */
+.main-footer {
+    background-color: #111111; /* Fondo Negro */
+    color: #ffffff; /* Letras Blancas */
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+/* Logo en el Footer */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+}
+.logo-title-footer {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+}
+.logo-subtitle-footer {
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.35em;
+    margin-top: 4px;
+}
+
+/* Navegación en el Footer (Centro) */
+.footer-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+}
+.footer-nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+.footer-nav a:hover {
+    color: #999999;
+}
+
+/* Contacto e Iconos en el Footer (Derecha) */
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 0.9rem;
+}
+
+.contact-item i {
+    font-size: 1.2rem;
+    color: #cccccc;
+}
+
+.contact-item a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.phones {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Barra inferior del Footer */
+.footer-bottom {
+    background-color: #000000;
+    padding: 20px;
+    font-size: 0.8rem;
+    color: #888888;
+}
+
+.bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.bottom-left, .bottom-right {
+    flex: 1;
+}
+
+.bottom-right {
+    text-align: right;
+}
