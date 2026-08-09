@@ -10,7 +10,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
-    /* Texto en escala de grises oscuro, sin llegar a negro puro */
     color: #333333; 
     line-height: 1.6;
 }
@@ -33,7 +32,6 @@ body {
     border-bottom: 1px solid #eeeeee;
 }
 
-/* Construcción del Logo */
 .logo-link {
     text-decoration: none;
     display: flex;
@@ -52,12 +50,11 @@ body {
 .logo-subtitle {
     font-size: 0.75rem;
     font-weight: 400;
-    letter-spacing: 0.28em; /* Ajustado para igualar el ancho de RIDALONI */
+    letter-spacing: 0.28em; 
     margin-top: 4px;
-    margin-right: -0.28em; /* Compensa el tracking del último caracter */
+    margin-right: -0.28em; 
 }
 
-/* Menú Superior */
 .main-nav ul {
     list-style: none;
     display: flex;
@@ -72,10 +69,9 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Efecto hover y clase activa solicitada */
 .main-nav a:hover,
 .main-nav a.active {
-    color: #999999; /* Gris más claro */
+    color: #999999;
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
@@ -87,7 +83,7 @@ body {
 .carousel {
     position: relative;
     width: 100%;
-    height: 85vh; /* Ocupa casi toda la pantalla */
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -117,7 +113,6 @@ body {
     z-index: 1;
 }
 
-/* Botones del carrusel */
 .carousel-control {
     position: absolute;
     top: 50%;
@@ -139,7 +134,6 @@ body {
 .prev { left: 20px; }
 .next { right: 20px; }
 
-/* Texto temporal en las imágenes */
 .temp-text {
     color: #ffffff;
     font-size: 2rem;
@@ -156,18 +150,17 @@ body {
 }
 
 .about-section p {
-    font-size: 1.5rem; /* Letras grandes */
+    font-size: 1.5rem; 
     font-weight: 300;
     max-width: 900px;
     margin: 0 auto;
-    color: #444444; /* Gris oscuro para lectura */
+    color: #444444; 
 }
 
 /* ==========================================================================
    SECCIÓN: SLOGAN
    ========================================================================== */
 .slogan-section {
-    /* Color de fondo que combina con los grises (un gris azulado oscuro e ingenieril) */
     background-color: #4a5568; 
     color: #ffffff;
     padding: 60px 20px;
@@ -184,8 +177,8 @@ body {
    FOOTER (PIE DE PÁGINA)
    ========================================================================== */
 .main-footer {
-    background-color: #111111; /* Fondo Negro */
-    color: #ffffff; /* Letras Blancas */
+    background-color: #111111;
+    color: #ffffff;
 }
 
 .footer-top {
@@ -197,7 +190,6 @@ body {
     gap: 40px;
 }
 
-/* Logo en el Footer */
 .footer-logo {
     display: flex;
     flex-direction: column;
@@ -214,7 +206,6 @@ body {
     margin-top: 4px;
 }
 
-/* Navegación en el Footer (Centro) */
 .footer-nav ul {
     list-style: none;
     display: flex;
@@ -232,7 +223,6 @@ body {
     color: #999999;
 }
 
-/* Contacto e Iconos en el Footer (Derecha) */
 .footer-contact {
     display: flex;
     flex-direction: column;
@@ -251,12 +241,15 @@ body {
     color: #cccccc;
 }
 
-.contact-item a {
+/* Modificamos los links de contacto para que incluyan los números de WhatsApp */
+.contact-item a, .phones a {
     color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
-.contact-item a:hover {
+.contact-item a:hover, .phones a:hover {
+    color: #999999;
     text-decoration: underline;
 }
 
@@ -266,7 +259,6 @@ body {
     gap: 5px;
 }
 
-/* Barra inferior del Footer */
 .footer-bottom {
     background-color: #000000;
     padding: 20px;
@@ -288,4 +280,43 @@ body {
 
 .bottom-right {
     text-align: right;
+}
+
+/* ==========================================================================
+   BOTÓN VOLVER ARRIBA
+   ========================================================================== */
+#btnVolverArriba {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #333333;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* El botón arranca invisible */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Cuando Javascript le agrega la clase .mostrar, se hace visible */
+#btnVolverArriba.mostrar {
+    opacity: 1;
+    visibility: visible;
+}
+
+#btnVolverArriba:hover {
+    background-color: #666666;
 }
