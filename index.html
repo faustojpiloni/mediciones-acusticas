@@ -182,14 +182,14 @@
 
         // --- LÓGICA DEL BOTÓN "VOLVER ARRIBA" ---
         const btnVolver = document.getElementById("btnVolverArriba");
-        const header = document.getElementById("cabecera");
 
         // Detecta el scroll de la página
         window.onscroll = function() {
-            // Si el usuario bajó más de lo que mide la cabecera, mostramos el botón
-            if (document.body.scrollTop > header.offsetHeight || document.documentElement.scrollTop > header.offsetHeight) {
+            // Apenas el usuario baja 20 píxeles del top absoluto, la flecha aparece
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 btnVolver.classList.add("mostrar");
             } else {
+                // Si vuelve al top absoluto, desaparece
                 btnVolver.classList.remove("mostrar");
             }
         };
