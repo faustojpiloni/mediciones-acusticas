@@ -323,3 +323,145 @@ body {
 #btnVolverArriba:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
+
+
+/* ==========================================================================
+   PÁGINA: NOSOTROS
+   ========================================================================== */
+.hero-nosotros {
+    position: relative;
+    width: 100%;
+    height: 45vh;
+    background-color: #6b7280; /* Color gris de fondo hasta que subas la foto */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.55); /* El "velo" translúcido */
+    z-index: 1;
+}
+
+.hero-nosotros h1 {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
+/* Sección Qué Hacemos */
+.what-we-do-section {
+    background-color: #4a5568; /* El azul grisáceo institucional */
+    color: #ffffff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.what-we-do-section p {
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 950px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* Sección Filosofía */
+.philosophy-section {
+    background-color: #ffffff;
+    padding: 90px 20px;
+}
+
+.philosophy-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.philosophy-container p {
+    font-size: 1.1rem;
+    color: #444444;
+    margin-bottom: 25px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Sección Fundadores */
+.founders-section {
+    background-color: #4a5568; 
+    padding: 90px 20px;
+}
+
+.founder-card {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto 80px auto;
+}
+
+.founder-card:last-child {
+    margin-bottom: 0;
+}
+
+/* Diseño de la "Polaroid" */
+.polaroid {
+    background-color: #ffffff;
+    padding: 12px 12px 25px 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+    width: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.polaroid-img {
+    width: 100%;
+    height: 226px; /* La hace cuadrada */
+    object-fit: cover;
+}
+
+/* Iconos de Linkedin y Web en el borde blanco de abajo */
+.polaroid-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.polaroid-icons a {
+    color: #333333;
+    font-size: 1.4rem;
+    transition: color 0.3s;
+}
+
+.polaroid-icons a:hover {
+    color: #999999;
+}
+
+/* Textos de los fundadores */
+.founder-info {
+    flex: 1;
+    color: #ffffff;
+}
+
+.founder-info h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.founder-info p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.7;
+    text-align: justify;
+}
