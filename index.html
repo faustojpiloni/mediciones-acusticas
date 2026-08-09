@@ -19,7 +19,7 @@
 <body>
 
     <!-- CABECERA Y NAVEGACIÓN -->
-    <header class="main-header">
+    <header class="main-header" id="cabecera">
         <div class="logo-container">
             <a href="./" class="logo-link">
                 <span class="logo-title">RIDALONI</span>
@@ -28,7 +28,6 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <!-- La clase "active" mantiene el Inicio subrayado y en gris claro -->
                 <li><a href="./" class="active">INICIO</a></li>
                 <li><a href="nosotros/">NOSOTROS</a></li>
                 <li><a href="servicios/">SERVICIOS</a></li>
@@ -41,7 +40,6 @@
         <!-- SECCIÓN DE IMÁGENES (CARRUSEL) -->
         <section id="hero" class="carousel">
             <div class="carousel-inner">
-                <!-- Se usarán rectángulos grises temporales hasta que subas las imágenes a assets/img/ -->
                 <div class="carousel-item active" style="background-color: #d1d5db;">
                     <p class="temp-text">Imagen de Trabajo 1 (Auditorio)</p>
                 </div>
@@ -104,10 +102,12 @@
             <!-- Columna Derecha: Contacto e Iconos -->
             <div class="footer-col footer-contact">
                 <div class="contact-item">
-                    <i class="fa-solid fa-phone"></i>
+                    <!-- Ícono de WhatsApp en lugar del teléfono -->
+                    <i class="fa-brands fa-whatsapp"></i>
                     <div class="phones">
-                        <span>+54 9 11 5336-2484 (Fausto Piloni)</span>
-                        <span>+54 9 11 4971-3799 (Pedro Ridano)</span>
+                        <!-- Enlaces directos a WhatsApp -->
+                        <a href="https://wa.me/5491153362484" target="_blank">+54 9 11 5336-2484 (Fausto Piloni)</a>
+                        <a href="https://wa.me/5491149713799" target="_blank">+54 9 11 4971-3799 (Pedro Ridano)</a>
                     </div>
                 </div>
                 <div class="contact-item">
@@ -137,8 +137,14 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DEL CARRUSEL -->
+    <!-- BOTÓN VOLVER ARRIBA -->
+    <button id="btnVolverArriba" title="Volver al inicio">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- SCRIPT DEL CARRUSEL Y BOTÓN -->
     <script>
+        // --- LÓGICA DEL CARRUSEL ---
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-item');
         const totalSlides = slides.length;
@@ -168,11 +174,33 @@
 
         function resetInterval() {
             clearInterval(slideInterval);
-            slideInterval = setInterval(autoPlay, 5000); // Cambia de imagen cada 5 segundos
+            slideInterval = setInterval(autoPlay, 5000);
         }
 
-        // Iniciar el carrusel
         slideInterval = setInterval(autoPlay, 5000);
+
+
+        // --- LÓGICA DEL BOTÓN "VOLVER ARRIBA" ---
+        const btnVolver = document.getElementById("btnVolverArriba");
+        const header = document.getElementById("cabecera");
+
+        // Detecta el scroll de la página
+        window.onscroll = function() {
+            // Si el usuario bajó más de lo que mide la cabecera, mostramos el botón
+            if (document.body.scrollTop > header.offsetHeight || document.documentElement.scrollTop > header.offsetHeight) {
+                btnVolver.classList.add("mostrar");
+            } else {
+                btnVolver.classList.remove("mostrar");
+            }
+        };
+
+        // Al hacer clic, sube suavemente
+        btnVolver.addEventListener("click", function() {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
     </script>
 </body>
 </html>
