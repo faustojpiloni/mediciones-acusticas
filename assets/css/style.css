@@ -290,10 +290,13 @@ body {
     bottom: 30px;
     right: 30px;
     z-index: 99;
-    font-size: 18px;
+    font-size: 20px;
     border: none;
     outline: none;
-    background-color: #333333;
+    /* Aquí lo hacemos translúcido usando rgba (rojo, verde, azul, opacidad) */
+    background-color: rgba(0, 0, 0, 0.25); 
+    /* El backdrop-filter aplica un ligero desenfoque a lo que quede por detrás del botón */
+    backdrop-filter: blur(5px); 
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -304,19 +307,19 @@ body {
     align-items: center;
     justify-content: center;
     
-    /* El botón arranca invisible */
+    /* Arranca invisible */
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s, background-color 0.3s;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
 }
 
-/* Cuando Javascript le agrega la clase .mostrar, se hace visible */
+/* Al agregar la clase .mostrar desde Javascript, se hace visible */
 #btnVolverArriba.mostrar {
     opacity: 1;
     visibility: visible;
 }
 
+/* Se vuelve un poco más oscuro (pero sigue translúcido) al pasar el mouse */
 #btnVolverArriba:hover {
-    background-color: #666666;
+    background-color: rgba(0, 0, 0, 0.6);
 }
