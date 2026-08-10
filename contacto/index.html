@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Conexión a estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -45,12 +44,11 @@
             <div class="container">
                 
                 <div class="form-wrapper">
-                    <!-- FormSubmit configurado con tu mail -->
+                    <!-- FormSubmit configurado -->
                     <form action="https://formsubmit.co/faustopiloni@gmail.com" method="POST" class="custom-form" id="formularioContacto">
                         
-                        <!-- Campos ocultos de configuración para FormSubmit -->
                         <input type="hidden" name="_subject" id="asuntoDinamico" value="Nueva consulta desde la web">
-                        <input type="hidden" name="_template" value="table"> <!-- Formato de tabla ordenado en el mail -->
+                        <input type="hidden" name="_template" value="table">
                         
                         <div class="form-group">
                             <label for="nombre">NOMBRE</label>
@@ -87,19 +85,34 @@
 
                         <div class="form-group">
                             <label for="mensaje">MENSAJE</label>
-                            <textarea id="mensaje" name="mensaje" rows="6" placeholder="Describe el proyecto o tu consulta" required></textarea>
+                            <!-- Contenedor nuevo para posicionar el botoncito -->
+                            <div class="textarea-wrapper">
+                                <textarea id="mensaje" name="mensaje" rows="6" placeholder="Describe el proyecto o tu consulta" required></textarea>
+                                <button type="button" id="btnExpand" class="btn-expand" title="Escribir en pantalla completa">
+                                    <i class="fa-solid fa-expand"></i>
+                                </button>
+                            </div>
                         </div>
 
-                        <!-- El botón arranca deshabilitado -->
                         <button type="submit" class="btn-enviar" id="btnEnviar" disabled>ENVIAR</button>
                     </form>
                 </div>
 
             </div>
         </section>
+
+        <!-- MODAL PANTALLA COMPLETA PARA EL MENSAJE -->
+        <div id="modalMensaje" class="fullscreen-modal">
+            <div class="modal-content">
+                <textarea id="mensajeFullscreen" placeholder="Describe el proyecto o tu consulta aquí..."></textarea>
+                <button type="button" id="btnMinimize" class="btn-minimize" title="Volver al formulario">
+                    <i class="fa-solid fa-compress"></i> MINIMIZAR
+                </button>
+            </div>
+        </div>
     </main>
 
-    <!-- PIE DE PÁGINA (Igual que antes) -->
+    <!-- PIE DE PÁGINA -->
     <footer class="main-footer">
         <div class="footer-top container">
             <div class="footer-col footer-logo">
@@ -150,9 +163,7 @@
     </button>
 
     <script>
-        // --- LÓGICA DEL FORMULARIO Y BOTÓN VOLVER ARRIBA ---
-        
-        // Botón volver arriba
+        // --- LÓGICA DEL BOTÓN VOLVER ARRIBA ---
         const btnVolver = document.getElementById("btnVolverArriba");
         window.onscroll = function() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -165,24 +176,21 @@
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
 
-        // Lógica de Validación y Asunto Dinámico
+        // --- LÓGICA DEL FORMULARIO Y VALIDACIÓN ---
         const form = document.getElementById('formularioContacto');
         const btnEnviar = document.getElementById('btnEnviar');
         const asuntoDinamico = document.getElementById('asuntoDinamico');
         const inputs = form.querySelectorAll('input[type="text"], input[type="email"], textarea');
         const radios = form.querySelectorAll('input[type="radio"]');
 
-        // Función que revisa si todo está completo
         function validarFormulario() {
             let textoCompleto = true;
-            // Revisar campos de texto
             inputs.forEach(input => {
                 if (input.value.trim() === '') {
                     textoCompleto = false;
                 }
             });
 
-            // Revisar que al menos un radio esté seleccionado
             let radioSeleccionado = false;
             radios.forEach(radio => {
                 if (radio.checked) {
@@ -190,7 +198,6 @@
                 }
             });
 
-            // Si ambas condiciones se cumplen, habilitar el botón
             if (textoCompleto && radioSeleccionado) {
                 btnEnviar.disabled = false;
             } else {
@@ -198,11 +205,9 @@
             }
         }
 
-        // Escuchar cada vez que el usuario escribe o hace clic
         form.addEventListener('input', validarFormulario);
         form.addEventListener('change', validarFormulario);
 
-        // Justo antes de enviar, armamos el Asunto
         form.addEventListener('submit', function() {
             const nombre = document.getElementById('nombre').value.trim();
             let servicio = "";
@@ -211,8 +216,34 @@
                     servicio = radio.value;
                 }
             });
-            // Guardamos el asunto con el formato: Nombre - Servicio
             asuntoDinamico.value = nombre + " - " + servicio;
+        });
+
+        // --- LÓGICA DEL MODO PANTALLA COMPLETA (MENSAJE) ---
+        const modalMensaje = document.getElementById('modalMensaje');
+        const btnExpand = document.getElementById('btnExpand');
+        const btnMinimize = document.getElementById('btnMinimize');
+        const mensajeOriginal = document.getElementById('mensaje');
+        const mensajeFullscreen = document.getElementById('mensajeFullscreen');
+
+        // Abrir pantalla completa
+        btnExpand.addEventListener('click', () => {
+            modalMensaje.classList.add('mostrar-modal');
+            mensajeFullscreen.value = mensajeOriginal.value; // Copia lo que ya escribiste
+            mensajeFullscreen.focus();
+        });
+
+        // Minimizar pantalla completa
+        btnMinimize.addEventListener('click', () => {
+            modalMensaje.classList.remove('mostrar-modal');
+            mensajeOriginal.value = mensajeFullscreen.value; // Vuelca lo que escribiste en el form
+            validarFormulario(); // Re-chequea si se habilita el botón enviar
+        });
+
+        // Sincronizar en tiempo real mientras el usuario escribe en fullscreen
+        mensajeFullscreen.addEventListener('input', () => {
+            mensajeOriginal.value = mensajeFullscreen.value;
+            validarFormulario();
         });
     </script>
 </body>
