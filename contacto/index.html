@@ -85,13 +85,8 @@
 
                         <div class="form-group">
                             <label for="mensaje">MENSAJE</label>
-                            <!-- Contenedor nuevo para posicionar el botoncito -->
-                            <div class="textarea-wrapper">
-                                <textarea id="mensaje" name="mensaje" rows="6" placeholder="Describe el proyecto o tu consulta" required></textarea>
-                                <button type="button" id="btnExpand" class="btn-expand" title="Escribir en pantalla completa">
-                                    <i class="fa-solid fa-expand"></i>
-                                </button>
-                            </div>
+                            <!-- Casilla de mensaje simple y directa -->
+                            <textarea id="mensaje" name="mensaje" rows="6" placeholder="Describe el proyecto o tu consulta" required></textarea>
                         </div>
 
                         <button type="submit" class="btn-enviar" id="btnEnviar" disabled>ENVIAR</button>
@@ -100,16 +95,6 @@
 
             </div>
         </section>
-
-        <!-- MODAL PANTALLA COMPLETA PARA EL MENSAJE -->
-        <div id="modalMensaje" class="fullscreen-modal">
-            <div class="modal-content">
-                <textarea id="mensajeFullscreen" placeholder="Describe el proyecto o tu consulta aquí..."></textarea>
-                <button type="button" id="btnMinimize" class="btn-minimize" title="Volver al formulario">
-                    <i class="fa-solid fa-compress"></i> MINIMIZAR
-                </button>
-            </div>
-        </div>
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -217,33 +202,6 @@
                 }
             });
             asuntoDinamico.value = nombre + " - " + servicio;
-        });
-
-        // --- LÓGICA DEL MODO PANTALLA COMPLETA (MENSAJE) ---
-        const modalMensaje = document.getElementById('modalMensaje');
-        const btnExpand = document.getElementById('btnExpand');
-        const btnMinimize = document.getElementById('btnMinimize');
-        const mensajeOriginal = document.getElementById('mensaje');
-        const mensajeFullscreen = document.getElementById('mensajeFullscreen');
-
-        // Abrir pantalla completa
-        btnExpand.addEventListener('click', () => {
-            modalMensaje.classList.add('mostrar-modal');
-            mensajeFullscreen.value = mensajeOriginal.value; // Copia lo que ya escribiste
-            mensajeFullscreen.focus();
-        });
-
-        // Minimizar pantalla completa
-        btnMinimize.addEventListener('click', () => {
-            modalMensaje.classList.remove('mostrar-modal');
-            mensajeOriginal.value = mensajeFullscreen.value; // Vuelca lo que escribiste en el form
-            validarFormulario(); // Re-chequea si se habilita el botón enviar
-        });
-
-        // Sincronizar en tiempo real mientras el usuario escribe en fullscreen
-        mensajeFullscreen.addEventListener('input', () => {
-            mensajeOriginal.value = mensajeFullscreen.value;
-            validarFormulario();
         });
     </script>
 </body>
