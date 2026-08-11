@@ -144,22 +144,25 @@
         </div>
     </footer>
 
-    <!-- SCRIPT DEL CARROUSEL Y BOTÓN VOLVER ARRIBA -->
+<!-- SCRIPT DEL CARROUSEL Y BOTÓN VOLVER ARRIBA -->
     <script>
-        // Lógica del botón Volver Arriba
+        // Lógica del botón Volver Arriba (Protegida)
         const btnVolver = document.getElementById("btnVolverArriba");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                btnVolver.classList.add("mostrar");
-            } else {
-                btnVolver.classList.remove("mostrar");
-            }
-        };
-        btnVolver.addEventListener("click", function() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
+        
+        if (btnVolver) { // Solo si el botón existe en el HTML no tira error
+            window.onscroll = function() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    btnVolver.classList.add("mostrar");
+                } else {
+                    btnVolver.classList.remove("mostrar");
+                }
+            };
+            btnVolver.addEventListener("click", function() {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        }
 
-        // Lógica del Carrousel de Proyectos
+        // Lógica del Carrousel de Proyectos (Tu código original intacto)
         const track = document.getElementById('trackCarousel');
         const slides = Array.from(track.children);
         const nextButton = document.getElementById('btnNextCarousel');
@@ -175,7 +178,12 @@
         };
 
         // Escuchar cuando se redimensiona la pantalla para reajustar
-        window.addEventListener('resize', setSlidePosition);
+        window.addEventListener('resize', () => {
+            setSlidePosition();
+            // Reacomoda la pista visualmente al redimensionar
+            const currentSlide = track.querySelector('.current-slide');
+            track.style.transform = 'translateX(-' + currentSlide.style.left + ')';
+        });
         
         // Mover carrusel
         const moveToSlide = (track, currentSlide, targetSlide) => {
@@ -197,15 +205,17 @@
         };
 
         // Eventos de botones (resetean el temporizador para que no se mueva solo justo después de clickear)
-        nextButton.addEventListener('click', e => {
-            avanzarCarrousel();
-            resetInterval();
-        });
+        if (nextButton && prevButton) {
+            nextButton.addEventListener('click', e => {
+                avanzarCarrousel();
+                resetInterval();
+            });
 
-        prevButton.addEventListener('click', e => {
-            retrocederCarrousel();
-            resetInterval();
-        });
+            prevButton.addEventListener('click', e => {
+                retrocederCarrousel();
+                resetInterval();
+            });
+        }
 
         // Configurar Autoplay
         const startInterval = () => {
