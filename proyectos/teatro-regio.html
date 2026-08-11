@@ -144,7 +144,12 @@
         </div>
     </footer>
 
-<!-- SCRIPT DEL CARRUSEL Y BOTÓN -->
+<!-- BOTÓN VOLVER ARRIBA -->
+    <button id="btnVolverArriba" class="btn-volver-arriba" title="Volver arriba">
+        <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <!-- SCRIPT DEL CARRUSEL Y BOTÓN -->
     <script>
         // --- LÓGICA DEL CARRUSEL (Estilo INICIO) ---
         let currentSlide = 0;
@@ -215,7 +220,6 @@
         if (totalSlides > 0) {
             slideInterval = setInterval(autoPlay, 5000);
         }
-
 
         // --- LÓGICA DEL BOTÓN "VOLVER ARRIBA" ---
         const btnVolver = document.getElementById("btnVolverArriba");
