@@ -293,9 +293,7 @@ body {
     font-size: 20px;
     border: none;
     outline: none;
-    /* Aquí lo hacemos translúcido usando rgba (rojo, verde, azul, opacidad) */
     background-color: rgba(0, 0, 0, 0.25); 
-    /* El backdrop-filter aplica un ligero desenfoque a lo que quede por detrás del botón */
     backdrop-filter: blur(5px); 
     color: white;
     cursor: pointer;
@@ -307,19 +305,16 @@ body {
     align-items: center;
     justify-content: center;
     
-    /* Arranca invisible */
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
 }
 
-/* Al agregar la clase .mostrar desde Javascript, se hace visible */
 #btnVolverArriba.mostrar {
     opacity: 1;
     visibility: visible;
 }
 
-/* Se vuelve un poco más oscuro (pero sigue translúcido) al pasar el mouse */
 #btnVolverArriba:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
@@ -332,7 +327,7 @@ body {
     position: relative;
     width: 100%;
     height: 45vh;
-    background-color: #6b7280; /* Color gris de fondo hasta que subas la foto */
+    background-color: #6b7280; 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -343,7 +338,7 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.55); /* El "velo" translúcido */
+    background-color: rgba(0, 0, 0, 0.55); 
     z-index: 1;
 }
 
@@ -360,7 +355,7 @@ body {
 
 /* Sección Qué Hacemos */
 .what-we-do-section {
-    background-color: #4a5568; /* El azul grisáceo institucional */
+    background-color: #4a5568; 
     color: #ffffff;
     padding: 80px 20px;
     text-align: center;
@@ -411,12 +406,12 @@ body {
     margin-bottom: 0;
 }
 
-/* Diseño de la "Polaroid" */
+/* Diseño de la "Polaroid" (Unificado a tamaño Servicios) */
 .polaroid {
     background-color: #ffffff;
-    padding: 12px 12px 25px 12px;
+    padding: 12px 12px 40px 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    width: 250px;
+    width: 320px;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -424,7 +419,7 @@ body {
 
 .polaroid-img {
     width: 100%;
-    height: 226px; /* La hace cuadrada */
+    height: 320px; 
     object-fit: cover;
 }
 
@@ -474,7 +469,7 @@ body {
     position: relative;
     width: 100%;
     height: 45vh;
-    background-color: #4a5568; /* Color temporal hasta que subas la foto */
+    background-color: #4a5568; 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -521,7 +516,6 @@ body {
 /* Estilo Polaroid sin iconos (solo la foto con borde blanco) */
 .polaroid-service {
     background-color: #ffffff;
-    /* Borde grueso abajo típico de polaroid, sin iconos */
     padding: 12px 12px 40px 12px; 
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     width: 320px;
@@ -530,14 +524,14 @@ body {
 
 .polaroid-service-img {
     width: 100%;
-    height: 320px; /* Foto cuadrada más grande para apreciar el equipo/medición */
+    height: 320px; 
     object-fit: cover;
 }
 
 /* Textos del servicio */
 .service-info {
     flex: 1;
-    color: #333333; /* Texto oscuro sobre fondo blanco */
+    color: #333333;
 }
 
 .service-info h3 {
@@ -565,7 +559,7 @@ body {
     }
     
     .service-info p, .founder-info p {
-        text-align: center; /* En móviles queda mejor centrado que justificado */
+        text-align: center; 
     }
 }
 
@@ -577,7 +571,7 @@ body {
     position: relative;
     width: 100%;
     height: 45vh;
-    background-color: #6b7280; /* Color gris hasta que subas foto */
+    background-color: #6b7280; 
     background-size: cover;
     background-position: center;
     display: flex;
@@ -631,7 +625,6 @@ body {
     letter-spacing: 0.5px;
 }
 
-/* Estilos para inputs de texto y textarea */
 .custom-form input[type="text"],
 .custom-form input[type="email"],
 .custom-form textarea {
@@ -650,17 +643,16 @@ body {
 .custom-form input:focus,
 .custom-form textarea:focus {
     outline: none;
-    border-color: #4a5568; /* Borde azul al hacer click adentro */
+    border-color: #4a5568;
 }
 
-/* El texto de "placeholder" (Ej: Ingresa tu nombre) */
 .custom-form input::placeholder,
 .custom-form textarea::placeholder {
     color: #a0a0a0;
     font-weight: 300;
 }
 
-/* --- ESTILOS DE LOS RADIO BUTTONS (Círculos Personalizados) --- */
+/* --- ESTILOS DE LOS RADIO BUTTONS --- */
 .radio-group {
     display: flex;
     flex-direction: column;
@@ -677,12 +669,10 @@ body {
     font-weight: 400 !important;
 }
 
-/* Ocultar el círculo que viene por defecto en el navegador */
 .custom-radio input[type="radio"] {
     display: none;
 }
 
-/* Crear nuestro propio círculo vacío */
 .radio-mark {
     width: 22px;
     height: 22px;
@@ -694,12 +684,10 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Efecto Hover sobre el círculo (se oscurece el borde) */
 .custom-radio:hover .radio-mark {
     border-color: #4a5568;
 }
 
-/* Rellenar el círculo de azul cuando está seleccionado */
 .custom-radio input[type="radio"]:checked + .radio-mark {
     border-color: #4a5568;
 }
@@ -708,7 +696,7 @@ body {
     content: "";
     width: 12px;
     height: 12px;
-    background-color: #4a5568; /* Azul institucional */
+    background-color: #4a5568; 
     border-radius: 50%;
     position: absolute;
     top: 50%;
@@ -716,7 +704,6 @@ body {
     transform: translate(-50%, -50%);
 }
 
-/* Botón de Enviar */
 .btn-enviar {
     background-color: #4a5568;
     color: #ffffff;
@@ -730,14 +717,13 @@ body {
     cursor: pointer;
     transition: background-color 0.3s;
     margin-top: 10px;
-    align-self: flex-start; /* Para que no ocupe todo el ancho */
+    align-self: flex-start;
 }
 
 .btn-enviar:hover {
-    background-color: #374151; /* Un azul un poco más oscuro */
+    background-color: #374151; 
 }
 
-/* Ajustes para móviles */
 @media (max-width: 600px) {
     .form-wrapper {
         padding: 30px 20px;
@@ -748,7 +734,6 @@ body {
     }
 }
 
-/* Estado deshabilitado del botón Enviar */
 .btn-enviar:disabled {
     background-color: #cccccc;
     color: #888888;
@@ -756,12 +741,9 @@ body {
 }
 
 .btn-enviar:disabled:hover {
-    background-color: #cccccc; /* Evita que cambie de color si está bloqueado */
+    background-color: #cccccc; 
 }
 
-/* ==========================================================================
-   BLOQUEAR EXPANSIÓN DEL MENSAJE
-   ========================================================================== */
 .custom-form textarea {
     resize: none !important; 
 }
@@ -770,10 +752,8 @@ body {
 /* =========================================
    SECCIÓN PROYECTOS - INDEX (GRILLA)
 ========================================= */
-
-/* Hero Proyectos */
 .hero-proyectos {
-    background-image: url('../img/hero-proyectos.jpg'); /* Reemplazar por tu foto */
+    background-image: url('../img/hero-proyectos.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
@@ -784,9 +764,9 @@ body {
     justify-content: center;
     text-align: center;
     color: #fff;
+    background-color: #6b7280; /* Por si falla la imagen */
 }
 
-/* Grilla */
 .projects-grid-section {
     padding: 5rem 0;
 }
@@ -797,10 +777,10 @@ body {
     padding: 0 1rem;
 }
 
-/* Tarjeta Polaroid */
+/* Tarjeta Polaroid unificada (padding idéntico a Servicios) */
 .polaroid-card {
     background-color: #fff;
-    padding: 15px 15px 25px 15px; /* Bordes gruesos, especialmente abajo */
+    padding: 12px 12px 40px 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     text-decoration: none;
     display: flex;
@@ -813,11 +793,11 @@ body {
     box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
-/* Contenedor de la imagen y Efecto Hover (Blur + Botón) */
+/* Se forzó aspecto 1:1 para que sean cuadradas como en Servicios */
 .polaroid-img-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1; 
     overflow: hidden;
     margin-bottom: 20px;
 }
@@ -835,8 +815,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 26, 51, 0.4); /* Color azul oscuro de Ridaloni con transparencia */
-    backdrop-filter: blur(4px); /* Efecto Blur */
+    background: rgba(74, 85, 104, 0.6); /* El azul #4a5568 con transparencia */
+    backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
@@ -848,7 +828,6 @@ body {
     opacity: 1;
 }
 
-/* Botón VER MÁS (simulado como texto) */
 .btn-ver-mas {
     color: #fff;
     font-weight: 800;
@@ -859,23 +838,27 @@ body {
     border-radius: 4px;
 }
 
-/* Título Polaroid */
+/* Título Polaroid unificado a colores de texto */
 .polaroid-title {
-    color: var(--dark-blue); /* Ajusta si tu variable es otra, ej. #001a33 */
+    color: #333333; 
     font-weight: 700;
     font-size: 1.1rem;
     text-align: center;
     letter-spacing: 0.5px;
     text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.polaroid-card:hover .polaroid-title {
+    color: #999999;
 }
 
 /* =========================================
    SECCIÓN PROYECTO INDIVIDUAL (DETALLE)
 ========================================= */
 
-/* Hero Proyecto Individual */
 .hero-detalle-proyecto {
-    background-image: url('../img/hero-proyecto-individual.jpg'); /* Reemplazar por tu foto genérica o específica */
+    background-image: url('../img/hero-proyecto-individual.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
@@ -887,11 +870,12 @@ body {
     text-align: center;
     color: #fff;
     text-transform: uppercase;
+    background-color: #6b7280;
 }
 
-/* Descripción Azul */
+/* Descripción con tu azul institucional */
 .detalle-descripcion-section {
-    background-color: var(--dark-blue, #001a33); /* Usa el azul de tu web */
+    background-color: #4a5568; 
     color: #fff;
     padding: 4rem 1rem;
 }
@@ -917,7 +901,7 @@ body {
     overflow: hidden;
 }
 .carousel-proyecto-track-container {
-    height: 60vh; /* Altura importante */
+    height: 60vh; 
     min-height: 400px;
     position: relative;
     overflow: hidden;
@@ -943,12 +927,12 @@ body {
     display: block;
 }
 
-/* Botones Flecha del Carrousel */
+/* Botones Flecha del Carrousel (Grises translúcidos, redondos) */
 .carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 26, 51, 0.7);
+    background: rgba(0, 0, 0, 0.25);
     color: #fff;
     border: none;
     font-size: 1.5rem;
@@ -963,7 +947,7 @@ body {
     justify-content: center;
 }
 .carousel-btn:hover {
-    background: rgba(0, 26, 51, 1);
+    background: rgba(0, 0, 0, 0.6);
 }
 .prev-btn { left: 15px; }
 .next-btn { right: 15px; }
@@ -984,7 +968,7 @@ body {
 }
 .btn-nav-proyecto {
     display: inline-block;
-    color: var(--dark-blue, #001a33);
+    color: #4a5568;
     font-weight: 700;
     text-decoration: none;
     font-size: 1rem;
@@ -994,18 +978,16 @@ body {
     margin: 0 8px;
 }
 .btn-nav-proyecto:hover {
-    color: #0056b3; /* Un azul un poco más claro al pasar el mouse */
+    color: #999999; 
     transform: scale(1.05);
 }
 
-/* Estado bloqueado para Anterior / Siguiente */
 .btn-nav-proyecto.disabled {
     color: #a0a0a0;
     pointer-events: none;
     cursor: not-allowed;
 }
 
-/* Responsivo para celulares */
 @media (max-width: 768px) {
     .carousel-proyecto-track-container {
         height: 40vh;
@@ -1019,4 +1001,15 @@ body {
     .btn-nav-proyecto {
         font-size: 0.9rem;
     }
+}
+
+/* ==========================================================================
+   CLASE PARA IMÁGENES TEMPORALES (PLACEHOLDER GRIS)
+   ========================================================================== */
+.img-placeholder {
+    background-color: #6b7280;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
