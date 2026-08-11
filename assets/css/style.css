@@ -406,12 +406,15 @@ body {
     margin-bottom: 0;
 }
 
-/* Diseño de la "Polaroid" (Unificado a tamaño Servicios) */
+/* Diseño de la "Polaroid" (Nosotros - Unificado) */
 .polaroid {
+    position: relative;
     background-color: #ffffff;
-    padding: 12px 12px 40px 12px;
+    padding: 12px 12px 75px 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.25);
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
@@ -419,16 +422,22 @@ body {
 
 .polaroid-img {
     width: 100%;
-    height: 320px; 
+    aspect-ratio: 1 / 1; 
     object-fit: cover;
 }
 
 /* Iconos de Linkedin y Web en el borde blanco de abajo */
 .polaroid-icons {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 20px;
-    margin-top: 15px;
+    margin-top: 0;
 }
 
 .polaroid-icons a {
@@ -513,18 +522,21 @@ body {
     margin-bottom: 0;
 }
 
-/* Estilo Polaroid sin iconos (solo la foto con borde blanco) */
+/* Estilo Polaroid sin iconos (Servicios - Unificado) */
 .polaroid-service {
+    position: relative;
     background-color: #ffffff;
-    padding: 12px 12px 40px 12px; 
+    padding: 12px 12px 75px 12px; 
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     flex-shrink: 0;
 }
 
 .polaroid-service-img {
     width: 100%;
-    height: 320px; 
+    aspect-ratio: 1 / 1; 
     object-fit: cover;
 }
 
@@ -777,10 +789,14 @@ body {
     padding: 0 1rem;
 }
 
-/* Tarjeta Polaroid unificada (padding idéntico a Servicios) */
+/* Tarjeta Polaroid unificada (Proyectos) */
 .polaroid-card {
+    position: relative;
     background-color: #fff;
-    padding: 12px 12px 40px 12px;
+    padding: 12px 12px 75px 12px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     text-decoration: none;
     display: flex;
@@ -793,13 +809,13 @@ body {
     box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
-/* Se forzó aspecto 1:1 para que sean cuadradas como en Servicios */
+/* Se forzó aspecto 1:1 para que sean cuadradas */
 .polaroid-img-wrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 1 / 1; 
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 .polaroid-img-wrapper img {
     width: 100%;
@@ -838,8 +854,17 @@ body {
     border-radius: 4px;
 }
 
-/* Título Polaroid unificado a colores de texto */
+/* Título Polaroid unificado */
 .polaroid-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #333333; 
     font-weight: 700;
     font-size: 1.1rem;
