@@ -150,10 +150,11 @@ body {
 }
 
 .about-section p {
-    font-size: 1.5rem; 
+    font-size: 1.2rem; 
     font-weight: 300;
-    max-width: 900px;
+    max-width: 950px;
     margin: 0 auto;
+    line-height: 1.8;
     color: #444444; 
 }
 
@@ -471,7 +472,7 @@ body {
 .founder-info p {
     font-size: 1.1rem;
     font-weight: 300;
-    line-height: 1.7;
+    line-height: 1.8;
     text-align: justify;
 }
 
@@ -933,10 +934,11 @@ body {
     padding: 4rem 1rem;
 }
 .detalle-descripcion-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    max-width: 900px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    max-width: 950px;
     margin: 0 auto;
+    line-height: 1.8;
 }
 
 /* Carrousel del Proyecto */
@@ -1021,7 +1023,7 @@ body {
 }
 .btn-nav-proyecto {
     display: inline-block;
-    color: #4a5568;
+    color: #333333;
     font-weight: 700;
     text-decoration: none;
     font-size: 1rem;
