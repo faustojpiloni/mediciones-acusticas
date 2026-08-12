@@ -31,6 +31,7 @@ body {
     background-color: #ffffff;
     border-bottom: 1px solid #eeeeee;
     position: relative; /* Necesario para el menú desplegable en móviles */
+    z-index: 9999; /* ¡ESTO ES VITAL PARA QUE EL MENÚ NO QUEDE DETRÁS DE LAS FOTOS! */
 }
 
 .logo-link {
@@ -1052,6 +1053,7 @@ body {
 
     .menu-toggle {
         display: flex; /* Muestra el botón hamburguesa */
+        margin-left: auto; /* EMPUJA EL BOTÓN HACIA EL BORDE DERECHO */
     }
 
     /* El contenedor 'nav' sale del flujo para no empujar al botón hamburguesa */
@@ -1061,22 +1063,23 @@ body {
         left: 0;
         width: 100%;
         z-index: 1000;
+        background-color: #ffffff;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1); /* Pasamos la sombra aquí */
     }
 
     /* La lista (ul) ahora hace la animación sin problemas de posición */
     .main-nav ul {
-        background-color: #ffffff;
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 0;
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-in-out;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
     }
 
     .main-nav ul.active {
-        max-height: 400px; /* Lo subí un poquito para asegurar que entren bien todas tus pestañas */
+        max-height: 400px; /* Asegura que entren todas las pestañas */
     }
 
     .main-nav ul li {
