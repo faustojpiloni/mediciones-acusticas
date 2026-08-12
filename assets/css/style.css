@@ -168,9 +168,14 @@ body {
 }
 
 .slogan-section h2 {
-    font-size: 2rem;
-    font-weight: 400;
-    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
 }
 
 /* ==========================================================================
@@ -779,6 +784,17 @@ body {
     background-color: #6b7280; /* Por si falla la imagen */
 }
 
+.hero-proyectos h1 {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
+}
+
 .projects-grid-section {
     padding: 5rem 0;
 }
@@ -896,6 +912,18 @@ body {
     color: #fff;
     text-transform: uppercase;
     background-color: #6b7280;
+}
+
+.hero-detalle-proyecto h1 {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 900px;
+    line-height: 1.4;
 }
 
 /* Descripción con tu azul institucional */
