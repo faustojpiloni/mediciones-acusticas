@@ -1054,25 +1054,29 @@ body {
         display: flex; /* Muestra el botón hamburguesa */
     }
 
-    .main-nav ul {
+    /* El contenedor 'nav' sale del flujo para no empujar al botón hamburguesa */
+    .main-nav {
         position: absolute;
-        top: 100%; /* Se coloca justo debajo del header */
+        top: 100%; 
         left: 0;
         width: 100%;
+        z-index: 1000;
+    }
+
+    /* La lista (ul) ahora hace la animación sin problemas de posición */
+    .main-nav ul {
         background-color: #ffffff;
         flex-direction: column;
         align-items: center;
         gap: 0;
-        /* Animación de apertura */
         max-height: 0;
         overflow: hidden;
         transition: max-height 0.4s ease-in-out;
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        z-index: 1000;
     }
 
     .main-nav ul.active {
-        max-height: 350px; /* Expande el menú */
+        max-height: 400px; /* Lo subí un poquito para asegurar que entren bien todas tus pestañas */
     }
 
     .main-nav ul li {
