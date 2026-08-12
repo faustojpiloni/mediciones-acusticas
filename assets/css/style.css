@@ -30,6 +30,7 @@ body {
     padding: 20px 40px;
     background-color: #ffffff;
     border-bottom: 1px solid #eeeeee;
+    position: relative; /* Necesario para el menú desplegable en móviles */
 }
 
 .logo-link {
@@ -75,6 +76,37 @@ body {
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
+}
+
+/* --- DISEÑO DEL BOTÓN HAMBURGUESA (Oculto en PC) --- */
+.menu-toggle {
+    display: none; /* Se oculta en PC, se muestra en móvil */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 1001; /* Para que quede por encima del menú desplegable */
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #333333;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Animación a 'X' cuando tiene la clase 'open' */
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(9.5px) rotate(45deg);
+}
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-9.5px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -247,7 +279,6 @@ body {
     color: #cccccc;
 }
 
-/* Modificamos los links de contacto para que incluyan los números de WhatsApp */
 .contact-item a, .phones a {
     color: #ffffff;
     text-decoration: none;
@@ -310,7 +341,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
@@ -324,7 +354,6 @@ body {
 #btnVolverArriba:hover {
     background-color: rgba(0, 0, 0, 0.6);
 }
-
 
 /* ==========================================================================
    PÁGINA: NOSOTROS
@@ -360,7 +389,6 @@ body {
     line-height: 1.4;
 }
 
-/* Sección Qué Hacemos */
 .what-we-do-section {
     background-color: #4a5568; 
     color: #ffffff;
@@ -376,7 +404,6 @@ body {
     line-height: 1.8;
 }
 
-/* Sección Filosofía */
 .philosophy-section {
     background-color: #ffffff;
     padding: 90px 20px;
@@ -395,7 +422,6 @@ body {
     text-align: justify;
 }
 
-/* Sección Fundadores */
 .founders-section {
     background-color: #4a5568; 
     padding: 90px 20px;
@@ -413,7 +439,6 @@ body {
     margin-bottom: 0;
 }
 
-/* Diseño de la "Polaroid" (Nosotros - Unificado) */
 .polaroid {
     position: relative;
     background-color: #ffffff;
@@ -433,7 +458,6 @@ body {
     object-fit: cover;
 }
 
-/* Iconos de Linkedin y Web en el borde blanco de abajo */
 .polaroid-icons {
     position: absolute;
     bottom: 0;
@@ -457,7 +481,6 @@ body {
     color: #999999;
 }
 
-/* Textos de los fundadores */
 .founder-info {
     flex: 1;
     color: #ffffff;
@@ -476,7 +499,6 @@ body {
     line-height: 1.8;
     text-align: justify;
 }
-
 
 /* ==========================================================================
    PÁGINA: SERVICIOS
@@ -505,13 +527,11 @@ body {
     line-height: 1.4;
 }
 
-/* Sección de la Lista de Servicios (Fondo Blanco) */
 .services-list-section {
     background-color: #ffffff;
     padding: 90px 20px;
 }
 
-/* Tarjeta individual de servicio */
 .service-card {
     display: flex;
     align-items: center;
@@ -520,7 +540,6 @@ body {
     margin: 0 auto 90px auto;
 }
 
-/* Con esta clase invertimos el orden (Foto a la derecha, texto izquierda) */
 .service-card.reverse {
     flex-direction: row-reverse;
 }
@@ -529,7 +548,6 @@ body {
     margin-bottom: 0;
 }
 
-/* Estilo Polaroid sin iconos (Servicios - Unificado) */
 .polaroid-service {
     position: relative;
     background-color: #ffffff;
@@ -547,7 +565,6 @@ body {
     object-fit: cover;
 }
 
-/* Textos del servicio */
 .service-info {
     flex: 1;
     color: #333333;
@@ -568,20 +585,6 @@ body {
     text-align: justify;
     color: #444444;
 }
-
-/* Ajustes para pantallas pequeñas (celulares) en los servicios y fundadores */
-@media (max-width: 768px) {
-    .service-card, .service-card.reverse, .founder-card {
-        flex-direction: column;
-        gap: 30px;
-        text-align: center;
-    }
-    
-    .service-info p, .founder-info p {
-        text-align: center; 
-    }
-}
-
 
 /* ==========================================================================
    PÁGINA: CONTACTO
@@ -610,7 +613,6 @@ body {
     line-height: 1.4;
 }
 
-/* Sección Formulario */
 .contact-form-section {
     background-color: #ffffff;
     padding: 80px 20px;
@@ -671,7 +673,6 @@ body {
     font-weight: 300;
 }
 
-/* --- ESTILOS DE LOS RADIO BUTTONS --- */
 .radio-group {
     display: flex;
     flex-direction: column;
@@ -743,16 +744,6 @@ body {
     background-color: #374151; 
 }
 
-@media (max-width: 600px) {
-    .form-wrapper {
-        padding: 30px 20px;
-    }
-    .btn-enviar {
-        width: 100%;
-        text-align: center;
-    }
-}
-
 .btn-enviar:disabled {
     background-color: #cccccc;
     color: #888888;
@@ -762,11 +753,6 @@ body {
 .btn-enviar:disabled:hover {
     background-color: #cccccc; 
 }
-
-.custom-form textarea {
-    resize: none !important; 
-}
-
 
 /* =========================================
    SECCIÓN PROYECTOS - INDEX (GRILLA)
@@ -783,7 +769,7 @@ body {
     justify-content: center;
     text-align: center;
     color: #fff;
-    background-color: #6b7280; /* Por si falla la imagen */
+    background-color: #6b7280;
 }
 
 .hero-proyectos h1 {
@@ -808,7 +794,6 @@ body {
     padding: 0 1rem;
 }
 
-/* Tarjeta Polaroid unificada (Proyectos) */
 .polaroid-card {
     position: relative;
     background-color: #fff;
@@ -828,7 +813,6 @@ body {
     box-shadow: 0 15px 25px rgba(0,0,0,0.2);
 }
 
-/* Se forzó aspecto 1:1 para que sean cuadradas */
 .polaroid-img-wrapper {
     position: relative;
     width: 100%;
@@ -850,7 +834,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(74, 85, 104, 0.6); /* El azul #4a5568 con transparencia */
+    background: rgba(74, 85, 104, 0.6);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     display: flex;
@@ -873,7 +857,6 @@ body {
     border-radius: 4px;
 }
 
-/* Título Polaroid unificado */
 .polaroid-title {
     position: absolute;
     bottom: 0;
@@ -900,7 +883,6 @@ body {
 /* =========================================
    SECCIÓN PROYECTO INDIVIDUAL (DETALLE)
 ========================================= */
-
 .hero-detalle-proyecto {
     background-image: url('../img/hero-proyecto-individual.jpg'); 
     background-size: cover;
@@ -928,7 +910,6 @@ body {
     line-height: 1.4;
 }
 
-/* Descripción con tu azul institucional */
 .detalle-descripcion-section {
     background-color: #4a5568; 
     color: #fff;
@@ -943,7 +924,6 @@ body {
     text-align: center;
 }
 
-/* Carrousel del Proyecto */
 .detalle-galeria-section {
     background-color: #fff;
     padding: 5rem 1rem;
@@ -984,7 +964,6 @@ body {
     display: block;
 }
 
-/* Botones Flecha del Carrousel (Grises translúcidos, redondos) */
 .carousel-btn {
     position: absolute;
     top: 50%;
@@ -1009,7 +988,6 @@ body {
 .prev-btn { left: 15px; }
 .next-btn { right: 15px; }
 
-/* Botones Navegación ANTERIOR / SIGUIENTE */
 .detalle-navegacion-section {
     background-color: #fff;
     padding: 0 1rem 5rem 1rem;
@@ -1045,7 +1023,127 @@ body {
     cursor: not-allowed;
 }
 
+.img-placeholder {
+    background-color: #6b7280;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* ==========================================================================
+   DISEÑO RESPONSIVE (CELULARES Y TABLETS) - TODO AGRUPADO AQUÍ
+   ========================================================================== */
 @media (max-width: 768px) {
+    
+    /* CABECERA Y MENÚ DESPLEGABLE */
+    .main-header {
+        padding: 15px 20px;
+    }
+
+    .logo-title {
+        font-size: 1.6rem; /* Logo más chico */
+    }
+    
+    .logo-subtitle {
+        font-size: 0.55rem;
+    }
+
+    .menu-toggle {
+        display: flex; /* Muestra el botón hamburguesa */
+    }
+
+    .main-nav ul {
+        position: absolute;
+        top: 100%; /* Se coloca justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        /* Animación de apertura */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .main-nav ul.active {
+        max-height: 350px; /* Expande el menú */
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 15px 0;
+        font-size: 1.1rem;
+        border-top: 1px solid #eeeeee;
+    }
+
+    /* REDUCCIÓN PROPORCIONAL DE FUENTES Y MÁRGENES (GENERAL) */
+    .hero-nosotros h1, 
+    .hero-servicios h1, 
+    .hero-contacto h1, 
+    .hero-proyectos h1, 
+    .hero-detalle-proyecto h1 {
+        font-size: 1.6rem;
+    }
+
+    .slogan-section h2 {
+        font-size: 1.6rem;
+    }
+
+    p, .about-section p, .what-we-do-section p, .philosophy-container p, .detalle-descripcion-section p {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center; /* Forzamos centrado en móvil */
+    }
+
+    .about-section, .what-we-do-section, .philosophy-section, 
+    .founders-section, .services-list-section, .contact-form-section, 
+    .detalle-descripcion-section, .detalle-galeria-section {
+        padding: 50px 20px; /* Reducimos espacios verticales enormes */
+    }
+
+    /* CARRUSEL INICIO Y BOTONES */
+    .carousel-control {
+        font-size: 1.2rem;
+        padding: 10px 15px;
+    }
+
+    /* APILAR TARJETAS (NOSOTROS Y SERVICIOS) */
+    .service-card, .service-card.reverse, .founder-card {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .service-info h3, .founder-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .service-info p, .founder-info p {
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    /* FORMULARIO CONTACTO */
+    .form-wrapper {
+        padding: 30px 20px;
+    }
+    .btn-enviar {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* CARRUSEL PROYECTO INDIVIDUAL */
     .carousel-proyecto-track-container {
         height: 40vh;
         min-height: 250px;
@@ -1058,15 +1156,30 @@ body {
     .btn-nav-proyecto {
         font-size: 0.9rem;
     }
-}
 
-/* ==========================================================================
-   CLASE PARA IMÁGENES TEMPORALES (PLACEHOLDER GRIS)
-   ========================================================================== */
-.img-placeholder {
-    background-color: #6b7280;
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    /* FOOTER (Apilar todo uno debajo del otro y centrar) */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 40px;
+        padding: 50px 20px;
+    }
+
+    .logo-title-footer { font-size: 1.6rem; }
+    
+    .footer-nav ul {
+        align-items: center; /* Centrar links */
+    }
+
+    .footer-contact {
+        align-items: center; /* Centrar items de contacto */
+    }
+    
+    .bottom-flex {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .bottom-right { text-align: center; }
 }
